@@ -1,16 +1,25 @@
 import React from "react";
 
+function VoteButtons({ upvotes, downvotes, onVideoUpvote, onVideoDownvote }) {
+	
+  function handleUpvote(e) {
+		onVideoUpvote(parseInt(e.target.value))
+	}
 
-function VoteButtons({upvotes, downvotes}){
-  return (
-    <>
-      <button>👍{upvotes}</button>
-      <button>👎{downvotes}</button>
-      <br/>
-      <button>Hide Comments</button>
-      <hr/>
-    </>
-  )
+  function handleDownvote(e){
+    onVideoDownvote(parseInt(e.target.value))
+  }
+
+	return (
+		<>
+			<button name="upvotes" onClick={handleUpvote} value={upvotes}>👍 {upvotes}</button>
+			<button name="downvotes" onClick={handleDownvote} value={downvotes}>👎 {downvotes}</button>
+			<br />
+      <br />
+			<button>Hide Comments</button>
+			<hr />
+		</>
+	);
 }
 
-export default VoteButtons
+export default VoteButtons;
