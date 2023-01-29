@@ -1,9 +1,12 @@
-import React from "react"
+import React from "react";
 
-function Comment({user, comment}){
-  return (
-    <p><strong>{user}</strong> - {comment}</p>
-  )
+function Comment({ user, comment }) {
+	return (
+    <>
+      <h3>{user}</h3>
+      <p>{comment}</p>
+    </>
+	);
 }
 
-export default Comment
+export default Comment;
