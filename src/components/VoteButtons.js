@@ -16,8 +16,6 @@ function VoteButtons({ upvotes, downvotes, onVideoUpvote, onVideoDownvote }) {
 			<button name="downvotes" onClick={handleDownvote} value={downvotes}>👎 {downvotes}</button>
 			<br />
       <br />
-			<button>Hide Comments</button>
-			<hr />
 		</>
 	);
 }
