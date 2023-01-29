@@ -1,16 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import Comment from "./Comment";
 
 function CommentList({ comments }) {
+
+  const [showComments, setShowComments] = useState(true)
+
+  function handleShowComments(){
+    setShowComments(showComments => !showComments)
+  }
+
+  const appClass = showComments ? "" : "hidden"
+
+
 	return (
-		<>
-			<button>Hide Comments</button>
+		<div className="commentList">
+			<button onClick={handleShowComments}>{showComments ? "Hide" : "Show"} Comments</button>
 			<hr />
-			<h3>{comments.length} Comments</h3>
-			{comments.map((comment) => (
-				<Comment key={comment.id} user={comment.user} comment={comment.comment} />
-			))}
-		</>
+			<div className={appClass}>
+				<h3>{comments.length} Comments</h3>
+				{comments.map((comment) => (
+					<Comment key={comment.id} user={comment.user} comment={comment.comment} />
+				))}
+			</div>
+		</div>
 	);
 }
 
